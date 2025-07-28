@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YourTrips.com - Sign In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f7fdfc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #008080;
+      width: 100%;
+      padding: 15px 30px;
+      color: white;
+      font-size: 1.5em;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #008080;
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .divider {
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background-color: #ccc;
+    }
+
+    .divider::before {
+      left: 0;
+    }
+
+    .divider::after {
+      right: 0;
+    }
+
+    .divider span {
+      display: inline-block;
+      padding: 0 10px;
+      background-color: #f4f7f7;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    footer a {
+      color: #008080;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>YourTrips.com</header>
+
+  <div class="container">
+    <h2>Sign in or create an account</h2>
+    <p>You can sign in using your YourTrips.com account to access our services.</p>
+
+    <input type="email" id="email" placeholder="Enter your email address" />
+    <p id="email-error" class="error" style="display: none;">Please enter your email address</p>
+
+    <div id="password-container" style="display:none;">
+      <input type="password" id="password" placeholder="Enter your password" />
+      <p id="password-error" class="error" style="display: none;">Please enter your password</p>
+      <button class="btn" onclick="submitLogin()">Sign In</button>
+    </div>
+
+    <button class="btn" id="continue-btn" onclick="validateEmail()">Continue with email</button>
+
+    <div class="divider"><span>Welcome to your Trips!</span></div>
+  </div>
+
+  <footer>
+    <p>
+      By signing in or creating an account, you agree with our Terms & Conditions and all the Privacy Policy.
+    </p>
+    <p>&copy; 2025 YourTrips.com</p>
+  </footer>
+
+  <script>
+    function validateEmail() {
+      const emailInput = document.getElementById("email");
+      const emailError = document.getElementById("email-error");
+      const passwordContainer = document.getElementById("password-container");
+      const continueBtn = document.getElementById("continue-btn");
+
+      if (emailInput.value.trim() === "") {
+        emailError.style.display = "block";
+      } else {
+        emailError.style.display = "none";
+        continueBtn.style.display = "none";
+        passwordContainer.style.display = "block";
+      }
+    }
+
+    function submitLogin() {
+      const passwordInput = document.getElementById("password");
+      const passwordError = document.getElementById("password-error");
+      const emailInput = document.getElementById("email");
+
+      if (passwordInput.value.trim() === "") {
+        passwordError.style.display = "block";
+      } else {
+        passwordError.style.display = "none";
+        // Save email in localStorage to simulate login
+        localStorage.setItem('userEmail', emailInput.value.trim());
+
+        // Redirect to homepage
+        window.location.href = 'homepage.html';
+      }
+    }
+  </script>
+</body>
+</html>

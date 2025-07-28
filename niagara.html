@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Niagara Falls, Canada - Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: teal;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .nav-btn {
+      position: absolute;
+      background: white;
+      color: teal;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .nav-left {
+      left: 20px;
+      top: 20px;
+    }
+
+    .nav-right {
+      right: 20px;
+      top: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: teal;
+    }
+
+    img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: teal;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .single-review {
+      background-color: #fffbe7;
+      padding: 10px;
+      margin-top: 10px;
+      border-left: 4px solid teal;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #ddd;
+      color: #333;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="nav-btn nav-left" href="destination.html">Go to Destinations</a>
+  <a class="nav-btn nav-right" href="homepage.html">Go to Homepage</a>
+  <h1>Niagara Falls, Canada</h1>
+</header>
+
+<div class="container">
+  <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/niagara-falls-the-american-side-steve-harrington.jpg" alt="Niagara Falls view">
+
+  <h2>Overview</h2>
+  <p>
+    Niagara Falls is one of the most breathtaking natural wonders in North America. Located on the border between Ontario, Canada and New York, USA, it features three powerful waterfalls: Horseshoe Falls, American Falls, and Bridal Veil Falls. On the Canadian side, you’ll enjoy stunning views, vibrant nightlife, casinos, attractions, and family-friendly activities. Whether you're cruising beneath the falls on the Hornblower, exploring Clifton Hill, or dining with a waterfall backdrop, Niagara delivers excitement and awe at every turn.
+  </p>
+
+  <h2>Tour Details</h2>
+  <p><strong>Package Price:</strong> $899</p>
+  <p><strong>Includes:</strong> Hotel stay, Hornblower boat tour, Journey Behind the Falls, Skylon Tower dinner, and wine tasting in Niagara-on-the-Lake.</p>
+
+  <h2>Things to Do</h2>
+  <ul>
+    <li>Take the Hornblower Niagara Cruise to feel the mist of the falls</li>
+    <li>Experience the Journey Behind the Falls tour</li>
+    <li>Visit the Butterfly Conservatory and Niagara Parks</li>
+    <li>Explore Clifton Hill’s attractions and arcades</li>
+    <li>Enjoy wine tasting at nearby Niagara wineries</li>
+  </ul>
+
+  <h2>Give Your Feedback</h2>
+  <form id="feedbackForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <textarea id="comment" placeholder="Write your feedback here..." rows="4" required></textarea>
+    <button type="submit" class="btn">Submit Feedback</button>
+  </form>
+
+  <div id="reviewsContainer"></div>
+
+  <h2>Ready to go?</h2>
+  <a href="booking.html" class="btn">Book Your Trip</a>
+
+</div>
+
+<footer>
+  &copy; 2025 YourTrips.com — All rights reserved.
+</footer>
+
+<script>
+  const form = document.getElementById("feedbackForm");
+  const reviewsContainer = document.getElementById("reviewsContainer");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const comment = document.getElementById("comment").value.trim();
+
+    if (!name || !comment) {
+      alert("Please fill in both fields.");
+      return;
+    }
+
+    const reviewDiv = document.createElement("div");
+    reviewDiv.classList.add("single-review");
+    reviewDiv.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+    reviewsContainer.prepend(reviewDiv);
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>

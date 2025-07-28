@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bali, Indonesia - Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: teal;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .nav-btn {
+      position: absolute;
+      background: white;
+      color: teal;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .nav-left {
+      left: 20px;
+      top: 20px;
+    }
+
+    .nav-right {
+      right: 20px;
+      top: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: teal;
+    }
+
+    img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: teal;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .single-review {
+      background-color: #fffbe7;
+      padding: 10px;
+      margin-top: 10px;
+      border-left: 4px solid teal;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #ddd;
+      color: #333;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="nav-btn nav-left" href="destination.html">Go to Destinations</a>
+  <a class="nav-btn nav-right" href="homepage.html">Go to Homepage</a>
+  <h1>Bali, Indonesia</h1>
+</header>
+
+<div class="container">
+  <img src="https://tse4.mm.bing.net/th/id/OIP.CrQc7qtKDcmn3tgkT7tniwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Beautiful beach in Bali">
+
+  <h2>Overview</h2>
+  <p>
+    Bali, known as the Island of the Gods, is a tropical paradise famous for its lush landscapes, stunning beaches, spiritual temples, and vibrant culture. From surfing in Kuta to the rice terraces in Ubud, Bali offers endless adventures and moments of tranquility. Whether you're looking to explore ancient temples, rejuvenate at a spa, or dive into rich Balinese traditions, this island is perfect for relaxation and discovery. Bali welcomes you with warm hospitality and unforgettable experiences.
+  </p>
+
+  <h2>Tour Details</h2>
+  <p><strong>Package Price:</strong> $1,299</p>
+  <p><strong>Includes:</strong> Flights, 4-star resort stay, Ubud day tour, and beachside dinner experience.</p>
+
+  <h2>Things to Do</h2>
+  <ul>
+    <li>Visit the stunning temples of Uluwatu and Tanah Lot</li>
+    <li>Explore the rice terraces and culture in Ubud</li>
+    <li>Relax on the beaches of Seminyak and Nusa Dua</li>
+    <li>Try Balinese cuisine and traditional cooking classes</li>
+    <li>Experience a traditional Kecak fire dance</li>
+  </ul>
+
+  <h2>Give Your Feedback</h2>
+  <form id="feedbackForm">
+    <input type="text" id="name" placeholder="Your Name" required />
+    <textarea id="comment" placeholder="Write your feedback here..." rows="4" required></textarea>
+    <button type="submit" class="btn">Submit Feedback</button>
+  </form>
+
+  <div id="reviewsContainer"></div>
+
+  <h2>Ready to go?</h2>
+  <a href="booking.html" class="btn">Book Your Trip</a>
+
+</div>
+
+<footer>
+  &copy; 2025 YourTrips.com — All rights reserved.
+</footer>
+
+<script>
+  const form = document.getElementById("feedbackForm");
+  const reviewsContainer = document.getElementById("reviewsContainer");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value.trim();
+    const comment = document.getElementById("comment").value.trim();
+
+    if (!name || !comment) {
+      alert("Please fill in both fields.");
+      return;
+    }
+
+    const reviewDiv = document.createElement("div");
+    reviewDiv.classList.add("single-review");
+    reviewDiv.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+    reviewsContainer.prepend(reviewDiv);
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>

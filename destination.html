@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YourTrips Destinations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: teal;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      color: teal;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: teal;
+    }
+
+    .card-summary {
+      margin: 8px 0;
+    }
+
+    .btn {
+      background-color: teal;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #ddd;
+      color: #333;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>YourTrips.com</h1>
+    <p>Explore Popular Destinations</p>
+  </header>
+
+  <div class="container">
+    <h2>Top Places</h2>
+    <div id="destinations"></div>
+  </div>
+
+  <footer>
+    &copy; 2025 YourTrips.com — All rights reserved.
+  </footer>
+
+  <script>
+    const destinationList = [
+      {
+        name: "Paris, France",
+        image: "https://cdn.britannica.com/52/245552-050-3D7334F9/Eiffel-Tower-Paris.jpg",
+        summary: "The City of Lights and love.",
+        details: "Tour Package: $1,499 | Includes flights, hotel, Eiffel Tower visit.",
+        page: "paris.html",
+        gallery: [
+          "https://cdn.britannica.com/52/245552-050-3D7334F9/Eiffel-Tower-Paris.jpg",
+          "https://upload.wikimedia.org/wikipedia/commons/e/e6/Eiffel_Tower_at_sunset.jpg"
+        ]
+      },
+      {
+        name: "Bali, Indonesia",
+        image: "https://i.natgeofe.com/n/a86c35b9-f3cf-40ac-a70e-3c804c1a8188/GettyImages-109862623-Ubud.jpg",
+        summary: "Tropical beaches and temples.",
+        details: "Tour Package: $999 | Includes resort stay and waterfall tours.",
+        page: "bali.html",
+        gallery: [
+          "https://www.outlooktravelmag.com/media/bali-1-1679062958.profileImage.2x-1536x884.webp",
+          "https://i.natgeofe.com/n/a86c35b9-f3cf-40ac-a70e-3c804c1a8188/GettyImages-109862623-Ubud.jpg"
+        ]
+      },
+      {
+        name: "Tokyo, Japan",
+        image: "https://www.universalweather.com/blog/wp-content/uploads/2019/07/tokyo-ops-7-19.jpg",
+        summary: "City of tradition and tech.",
+        details: "Tour Package: $1,799 | Includes Mount Fuji trip and city pass.",
+        page: "tokyo.html",
+        gallery: [
+          "https://i.insider.com/5d264d1fb44ce765c0045293?width=1067&format=jpeg"
+        ]
+      },
+      {
+        name: "Niagara Falls, Ontario, Canada",
+        image: "https://www.traveltomtom.net/images/nieuwe_indeling/artikels/usa/niagara_falls/niagara_falls_ny_attractions-1.jpg",
+        summary: "Experience the roar of Niagara Falls.",
+        details: "Tour Package: $1,200 | Includes boat ride, hotel, and local tours.",
+        page: "niagara.html",
+        gallery: [
+          "https://www.traveltomtom.net/images/nieuwe_indeling/artikels/usa/niagara_falls/niagara_falls_ny_attractions-1.jpg"
+        ]
+      },
+      {
+        name: "Taj Mahal, Agra, India",
+        image: "https://trvlr.fr/wp-content/uploads/2022/07/trvlr-visiter-le-taj-mahal-en-inde-symetrie-1536x1021.jpg",
+        summary: "A symbol of eternal love.",
+        details: "Tour Package: $850 | Includes guided tour, stay, and local transport.",
+        page: "tajmahal.html",
+        gallery: [
+          "https://trvlr.fr/wp-content/uploads/2022/07/trvlr-visiter-le-taj-mahal-en-inde-symetrie-1536x1021.jpg"
+        ]
+      },
+      {
+        name: "Red Fort, Delhi, India",
+        image: "https://th.bing.com/th/id/R.ac328064e883a5eec2592671e5542fc6?rik=kEoSm%2byAp2cpEw&pid=ImgRaw&r=0",
+        summary: "Explore India's grand Mughal fort.",
+        details: "Tour Package: $700 | Includes entry tickets, heritage tour, and hotel stay.",
+        page: "redfort.html",
+        gallery: [
+          "https://th.bing.com/th/id/R.ac328064e883a5eec2592671e5542fc6?rik=kEoSm%2byAp2cpEw&pid=ImgRaw&r=0"
+        ]
+      }
+    ];
+
+    const destinationContainer = document.getElementById("destinations");
+
+    destinationList.forEach((place) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <img src="${place.image}" alt="${place.name}">
+        <div class="card-title">${place.name}</div>
+        <div class="card-summary">${place.summary}</div>
+        <a class="btn" href="${place.page}">View Details</a>
+      `;
+
+      destinationContainer.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

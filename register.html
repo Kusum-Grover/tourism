@@ -1,0 +1,141 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - YourTrips.com</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #008080; /* Teal Blue */
+      width: 100%;
+      padding: 15px 30px;
+      color: white;
+      font-size: 1.5em;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 450px;
+      margin: 40px auto;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 30px 25px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #008080; /* Teal Blue */
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: gray;
+    }
+
+    footer a {
+      color: #008080; /* Teal Blue */
+      text-decoration: none;
+    }
+
+    h2 {
+      color: #008080; /* Teal Blue */
+    }
+  </style>
+</head>
+<body>
+
+  <header>YourTrips.com</header>
+
+  <div class="container">
+    <h2>Create a New Account</h2>
+
+    <input type="text" id="first-name" placeholder="First Name" />
+    <input type="text" id="last-name" placeholder="Last Name" />
+    <input type="text" id="address" placeholder="Address" />
+    <input type="tel" id="phone" placeholder="Phone Number" />
+    <input type="email" id="email" placeholder="Gmail Address" />
+    <input type="password" id="password" placeholder="Password" />
+    <input type="password" id="confirm-password" placeholder="Confirm Password" />
+
+    <p id="error-message" class="error" style="display:none;"></p>
+    <button class="btn" onclick="register()">Register</button>
+  </div>
+
+  <footer>
+    <p>Already have an account? <a href="signin.html">Sign in</a></p>
+    <p>&copy; 2025 YourTrips.com</p>
+  </footer>
+
+  <script>
+    function register() {
+      const firstName = document.getElementById("first-name").value.trim();
+      const lastName = document.getElementById("last-name").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirm-password").value.trim();
+      const error = document.getElementById("error-message");
+
+      if (!firstName || !lastName || !address || !phone || !email || !password || !confirmPassword) {
+        error.textContent = "All fields are required.";
+        error.style.display = "block";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        error.textContent = "Passwords do not match.";
+        error.style.display = "block";
+        return;
+      }
+
+      error.style.display = "none";
+
+      // Save email and name locally (simulated registration)
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userName", firstName + " " + lastName);
+
+      // Redirect to homepage
+      window.location.href = "homepage.html";
+    }
+  </script>
+
+</body>
+</html>
