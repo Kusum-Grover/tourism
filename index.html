@@ -159,20 +159,17 @@
   </header>
 
   <nav>
-    <a href="homepage.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="profile.html">Your Profile</a>
     <a href="aboutus.html">About Us</a>
     <a href="destination.html">Destinations</a>
-    
-    
-    
   </nav>
 
   <section class="hero">
     <h1>Search Your Next Adventure</h1>
     <div class="search-bar">
-      <input type="text" placeholder="Search for destinations, trips..." />
-      <button>Search</button>
+      <input type="text" id="searchInput" placeholder="Search for destinations, trips..." />
+      <button onclick="handleSearch()">Search</button>
     </div>
   </section>
 
@@ -197,6 +194,29 @@
   <footer>
     &copy; 2025 YourTrips.com .
   </footer>
+
+  <script>
+    function handleSearch() {
+      const query = document.getElementById("searchInput").value.trim().toLowerCase();
+
+      const destinations = {
+        "paris": "paris.html",
+        "tokyo": "tokyo.html",
+        "niagara": "niagara.html",
+        "taj mahal": "tajmahal.html",
+        "red fort": "redfort.html",
+        "bali": "bali.html",
+        "blue mountain": "destination.html",  // adjust if you have a specific page
+        "elora falls": "destination.html"     // adjust if you have a specific page
+      };
+
+      if (destinations[query]) {
+        window.location.href = destinations[query];
+      } else {
+        alert("Destination not found. Please try another search.");
+      }
+    }
+  </script>
 
 </body>
 </html>
