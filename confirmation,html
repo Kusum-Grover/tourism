@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmed</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f7f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: teal;
+      color: white;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .confirmation {
+      padding: 50px 20px;
+    }
+
+    .confirmation h2 {
+      color: #00796b;
+      font-size: 26px;
+    }
+
+    .confirmation p {
+      font-size: 18px;
+      color: #444;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 20px;
+      background-color: teal;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #00796b;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      background-color: #004b4e;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Booking Confirmed</header>
+
+  <div class="confirmation">
+    <h2>Thank you for booking with YourTrips.com!</h2>
+    <p>Your trip has been successfully booked from us. Enjoy your trip!!.</p>
+    <a href="homepage.html" class="btn">Return to Homepage</a>
+  </div>
+
+  <footer>
+    &copy; 2025 YourTrips.com | All Rights Reserved
+  </footer>
+
+</body>
+</html>
